@@ -7,9 +7,9 @@ namespace StringExercises
     {
         public static void Main()
         {
-            
+
         }
-        
+
         //Write a program and ask the user to enter a few numbers separated by a hyphen. Work out if the numbers are
         //consecutive. For example, if the input is "5-6-7-8-9" or "20-19-18-17-16", display a message: "Consecutive";
         //otherwise, display "Not Consecutive".
@@ -18,8 +18,15 @@ namespace StringExercises
         {
             Console.WriteLine("Enter a few numbers separated by a hyphen.");
             var input = Console.ReadLine();
-            var numList = new List<int>();
             var array = input.Split('-');
+            Console.WriteLine(FindConsecutive(array));
+
+        }
+        public static string FindConsecutive(string[] array)
+        {
+
+            var numList = new List<int>();
+            
             foreach (var num in array)
             {
                 numList.Add(Convert.ToInt32(num));
@@ -38,18 +45,18 @@ namespace StringExercises
                     isConsecutive = false;
                     break;
                 }
-
-                
             }
             
             if (isConsecutive == true)
             {
-                Console.WriteLine("Consecutive");
+                return("Consecutive numbers found.");
             }
-            else
-            {
-                Console.WriteLine("Not Consecutive"); 
-            }
+
+            return ("Not consecutive.");
+        }
+
+        public static void Exercise1Logic()
+        {
             
         }
         
@@ -62,31 +69,41 @@ namespace StringExercises
             Console.WriteLine("Enter a few numbers separated by a hyphen.");
             var input = Console.ReadLine();
 
-            if (string.IsNullOrWhiteSpace(input))
+            if (!string.IsNullOrWhiteSpace(input))
             {
+                Console.WriteLine(FindDuplicate(input));
                 
+            }
+        }
+
+        public static string FindDuplicate(string input)
+        {
+             var numList = new List<int>();
+             var array = input.Split('-');
+            foreach (var num in array)
+            {
+                numList.Add(Convert.ToInt32(num));
+            }
+            var duplicateFound = false;
+            
+            for (var i = 0; i <= numList.Count - 1; i++)
+            {
+                var working = numList[i];
+                numList.Remove(working);
+
+                if (numList.Contains(working))
+                {
+                    duplicateFound = true;
+                }
+            }
+
+            if (duplicateFound == true)
+            {
+                return "Duplicates Found";
             }
             else
             {
-                var numList = new List<int>();
-                var array = input.Split('-');
-                foreach (var num in array)
-                {
-                    numList.Add(Convert.ToInt32(num));
-                }
-
-                for (var i = 0; i <= numList.Count - 1; i++)
-                {
-                    var working = numList[i];
-                    numList.Remove(working);
-
-                    if (numList.Contains(working))
-                    {
-                        Console.WriteLine("Duplicate");
-                        break;
-                    }
-
-                }
+                return "No Duplicates";
             }
         }
         
@@ -104,19 +121,23 @@ namespace StringExercises
             }
             else
             {
-                var array = input.Split(':');
-                var hour = Convert.ToInt32(array[0]);
-                var minute = Convert.ToInt32(array[1]);
-
-                if ((hour < 0 || hour > 23) || (minute <0 || minute > 59))
-                {
-                    Console.WriteLine("Invalid Time");
-                }
-                else
-                {
-                    Console.WriteLine("Valid Time");
-                }
+                Console.WriteLine(ValidateTime(input));
+                
             }
+        }
+
+        public static string ValidateTime(string input)
+        {
+            var array = input.Split(':');
+            var hour = Convert.ToInt32(array[0]);
+            var minute = Convert.ToInt32(array[1]);
+
+            if ((hour < 0 || hour > 23) || (minute <0 || minute > 59))
+            {
+                return"Invalid Time";
+            }
+
+            return "Valid Time";
         }
         
         //Write a program and ask the user to enter a few words separated by a space. Use the words to create a variable
@@ -128,6 +149,11 @@ namespace StringExercises
         {
             Console.WriteLine("Enter a few words separated by a space.");
             var input = Console.ReadLine().ToLower();
+            Console.WriteLine(CreatePascalCase(input));
+        }
+
+        public static StringBuilder CreatePascalCase(string input)
+        {
             var array = input.Split(' ');
             var list = new List<string>();
             var builder = new StringBuilder();
@@ -152,17 +178,21 @@ namespace StringExercises
                 builder.Append(i);
             }
 
-            Console.WriteLine(builder);
+            return builder;
         }
 
         //Write a program and ask the user to enter an English word. Count the number of vowels (a, e, o, u, i) in the
         //word. So, if the user enters "inadequate", the program should display 6 on the console.
-        
+
         public static void Exercise5()
         {
             Console.WriteLine("Enter an English word.");
             var input = Console.ReadLine().Trim();
-            var vowelCount = 0;
+            Console.WriteLine(CountVowels(input));
+        }
+        public static string CountVowels(string input)
+        {
+        var vowelCount = 0;
             foreach (var character in input)
             {
                 var letter = character.ToString();
@@ -172,7 +202,7 @@ namespace StringExercises
                 }
             }
 
-            Console.WriteLine($"There are {vowelCount} vowels in {input.Trim()}.");
+            return($"There are {vowelCount} vowels in {input.Trim()}.");
         }
     }
 }

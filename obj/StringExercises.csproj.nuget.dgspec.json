@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/daniel/RiderProjects/StringExercises/StringExercises/StringExercises.csproj": {}
+    "/home/daniel/RiderProjects/StringExercises/StringExercises.csproj": {}
   },
   "projects": {
-    "/home/daniel/RiderProjects/StringExercises/StringExercises/StringExercises.csproj": {
+    "/home/daniel/RiderProjects/StringExercises/StringExercises.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/daniel/RiderProjects/StringExercises/StringExercises/StringExercises.csproj",
+        "projectUniqueName": "/home/daniel/RiderProjects/StringExercises/StringExercises.csproj",
         "projectName": "StringExercises",
-        "projectPath": "/home/daniel/RiderProjects/StringExercises/StringExercises/StringExercises.csproj",
+        "projectPath": "/home/daniel/RiderProjects/StringExercises/StringExercises.csproj",
         "packagesPath": "/home/daniel/.nuget/packages/",
-        "outputPath": "/home/daniel/RiderProjects/StringExercises/StringExercises/obj/",
+        "outputPath": "/home/daniel/RiderProjects/StringExercises/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/daniel/.nuget/NuGet/NuGet.Config"
