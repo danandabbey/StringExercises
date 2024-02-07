@@ -1,1 +1,1 @@
-Simple String Exercises for a class im taking on C#
+Simple String Exercises for a class I'm taking on C#
